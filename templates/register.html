@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>注册</title>
+</head>
+<body>
+    <h2>注册</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="username">用户名：</label>
+        <input type="text" name="username" required><br>
+
+        <label for="password">密码：</label>
+        <input type="password" name="password" required><br>
+
+        <!-- 可以添加其他需要的字段 -->
+
+        <input type="submit" value="注册">
+    </form>
+</body>
+</html>

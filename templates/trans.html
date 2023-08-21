@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>菜鸟教程(runoob.com)</title>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .top-frame {
+    background-color:#f2f2f2;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+    
+    .form-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+
+    .center-frame {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    
+    }
+</style>
+</head>
+<body>
+    
+    <form action="/search-post/" method="post">
+        {% csrf_token %}
+        <!-- <label for="name">"输入要翻译的文本":</label> -->
+            
+        <!-- <input type="text" name="q"  maxlength="5000" > -->
+
+
+
+        <div class="top-frame">
+            </p>
+            <nav>
+                <ul>
+                    <li><a href="/home/">Home</a></li>
+                    <li><a href="/about/">About</a></li>
+                    <li><a href="/register/">Register</a></li>
+                    <li><a href="/login/">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <div class="form-container">
+            <div class="container">
+                <select id="target_method" name="target_method">
+                    <option value="parallel" >并行</option>
+                    <option value="streaming" >串流</option> 
+                    {{ request.POST.target_method }}    
+                </select>
+           
+                <input type="submit" value="翻译">
+                <textarea rows="10" cols="50" id="q" name="q" placeholder="输入要翻译的文本">{{ request.POST.q }}</textarea>
+            </div>
+        </div>
+            
+        <div class="center-frame">
+            <select id="target-tool1" name="target-tool1">
+                <option value="deepl"{% if target_tool1 == 'deepl' %}selected{% endif %}>deepl</option>
+                <option value="chatgpt"{% if target_tool1 == 'chatgpt' %}selected{% endif %}>chatgpt</option>           
+            </select>
+            <select id="target-language1" name="target-language1">
+                <option value="en" {% if target_language1 == 'en' %}selected{% endif %}>英语</option>
+                <option value="zh" {% if target_language1 == 'zh' %}selected{% endif %}>汉语</option>
+                <option value="de" {% if target_language1 == 'de' %}selected{% endif %}>德语</option>
+            </select>
+            <textarea rows="10" cols="50">{{ rlt1 }}</textarea>
+      
+            <select id="target-tool2" name="target-tool2">
+                <option value="deepl"{% if target_tool2 == 'deepl' %}selected{% endif %}>deepl</option>
+                <option value="chatgpt"{% if target_tool2 == 'chatgpt' %}selected{% endif %}>chatgpt</option>             
+            </select>
+            <select id="target-language2" name="target-language2">
+                <option value="en" {% if target_language2 == 'en' %}selected{% endif %}>英语</option>
+                <option value="zh" {% if target_language2 == 'zh' %}selected{% endif %}>汉语</option>
+                <option value="de" {% if target_language2 == 'de' %}selected{% endif %}>德语</option>
+            </select>
+            <textarea rows="10" cols="50">{{ rlt2 }}</textarea>
+        </div>
+        
+        
+    </form>
+    
+</body>
+</html>
+
+<p>
+
+
+
+    

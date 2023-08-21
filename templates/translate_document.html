@@ -1,0 +1,30 @@
+<!-- templates/translation_app/translate_document.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Translate Document</title>
+</head>
+<body>
+    <h1>Translate Document</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="file" accept=".txt, .docx, .pdf, .pptx, .html, .xliff">
+        <input type="submit" value="Translate">
+    
+    <!-- <br>
+    <label for="download_path">Download Path:</label>
+    <input type="text" name="download_path" id="download_path" placeholder="Enter download path..."> -->
+
+    <select id="target-language-doc" name="target-language-doc">
+        <option value="en" {% if target_language_doc == 'en' %}selected{% endif %}>英语</option>
+        <option value="zh" {% if target_language_doc == 'zh' %}selected{% endif %}>汉语</option>
+        <option value="de" {% if target_language_doc == 'de' %}selected{% endif %}>德语</option>
+    </select>
+    </form>
+    
+    {% if show_translation_status %}
+        <p id="translation_status">Translation Completed!</p>
+    {% endif %}
+</body>
+</html>

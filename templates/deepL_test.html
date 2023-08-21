@@ -1,0 +1,145 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<style>
+  body {
+      
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+      
+  }
+  .top-frame {
+  background-color:#f2f2f2;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  }
+
+  .translation-mode {
+  display: flex;
+  align-items: center;
+  }
+
+  .translation-mode .mode-link {
+  margin-right: 10px;
+  text-decoration: none;
+  color: #333;
+  padding: 5px;
+  border: 1px solid transparent;
+  }
+
+  /* .translation-mode .mode-link.active {
+  border-color: #007bff;
+  background-color: #007bff;
+  color: #fff;
+  } */
+
+  .center-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+  
+  }
+
+
+  
+  
+</style>
+
+<head>
+  <title>DeepL-like Page</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body>
+  <div class="top-frame">
+    <div class="login">
+      <a href="/login/" class="login-link">Sign In</a>
+    </div>
+    <div class="translation-mode">
+        <a href="/login/" class="mode-link">two</a>
+        <a href="/search-post/" class="mode-link">three</a>
+        
+    </div>
+    
+    <form action="https://www.deepl.com/translator" method="get" target="partialFrame">
+      <button type="submit">Show Partial Content</button>
+    </form>
+    <!-- <iframe name="partialFrame" width="600" height="400"></iframe> -->
+  
+
+
+  </div>
+  
+  <div class="center-frame">
+    
+
+
+  
+    <select id="target-language1" name="target-language1">
+        <option value="en" {% if target_language1 == 'en' %}selected{% endif %}>英语</option>
+        <option value="zh" {% if target_language1 == 'zh' %}selected{% endif %}>汉语</option>
+        <option value="de" {% if target_language1 == 'de' %}selected{% endif %}>德语</option>
+    </select>
+    <div class="input-box">
+      <textarea rows="10" cols="50"  id="source-text" placeholder="Enter text to translate..."></textarea>
+    </div>
+
+    <select id="target-language2" name="target-language2">
+        <option value="en" {% if target_language2 == 'en' %}selected{% endif %}>英语</option>
+        <option value="zh" {% if target_language2 == 'zh' %}selected{% endif %}>汉语</option>
+        <option value="de" {% if target_language2 == 'de' %}selected{% endif %}>德语</option>
+    </select>
+    <div class="output-box">
+      <textarea  rows="10" cols="50"  id="translated-text" placeholder="Translation result..." readonly></textarea>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2023 DeepL Similar Page. All rights reserved.</p>
+  </footer>
+
+    <!-- <div class="lmt__sides_wrapper">
+        <section class="lmt__side_container lmt__side_container--source" data-testid="translator-source" aria-labelledby="translation-source-heading">
+            <h3 id="translation-source-heading" class="sr-only">Source text</h3>
+            <div class="lmt__language_container">
+                <div id="source_language_label"></div>
+                <div class="lmt__language_select lmt__language_select--source" data-testid="translator-source-lang" dl-selected-lang="">
+                    <button class="lmt__language_select__active" data-testid="translator-source-lang-btn" >
+                            <span class="sr-only">Select source language. Currently selected:</span>
+                            <span class="lmt__language_select__active__title"><strong>Detect language</strong></span>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="lmt__language_select__opener">
+                                <path d="M19 9L12 16L5 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                           
+                    </button>
+                </div>
+            </div>
+        </section>
+       
+    </div> -->
+
+
+    
+
+
+
+
+
+        
+
+
+
+</body>
+</html>
